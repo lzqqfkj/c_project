@@ -1,0 +1,15 @@
+
+OVERVIEW
+This is an example program of Unix Domain socket programming. Server create a Unix Domain Socket and listening. 
+Client connects to server and write int data to socket. And Server accepts the connection and write data from socket and write back to client.
+
+COMPILE
+make
+
+FILES
+socket.h : Head file of Wrapper.
+socket.c : Wrapper of Unix Domain Socket programming interfaces.
+server.c : Code of server process.
+client.c : Code fo client process.
+Makefile  
+README  
