@@ -22,27 +22,23 @@ int main ()
         if (n == SOCKERR_IO) {
             printf ("write error on fd %d\n", conn_fd);
             break;
-        }
-        else if (n == SOCKERR_CLOSED) {
+        } else if (n == SOCKERR_CLOSED) {
             printf ("fd %d has been closed.\n", conn_fd);
             break;
-        }
-        else 
+        } else {
             printf ("Wrote %d to server. \n", i);
+        }
 
         n = sock_read (conn_fd, &data, sizeof (int));
         if (n == SOCKERR_IO) {
             printf ("read error on fd %d\n", conn_fd);
             break;
-        }
-        else if (n == SOCKERR_CLOSED) {
+        } else if (n == SOCKERR_CLOSED) {
             printf ("fd %d has been closed.\n", conn_fd);
             break;
-        }
-        else 
+        } else {
             printf ("Got that! data is %d\n", data);
-
-
+        }
 
         sleep (2);
     }

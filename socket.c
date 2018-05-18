@@ -31,14 +31,16 @@ int serv_listen (const char* name)
     len = sizeof (unix_addr.sun_family) + strlen (unix_addr.sun_path);
 
     /* Bind the name to the descriptor */
-    if (bind (fd, (struct sockaddr*)&unix_addr, len) < 0)
+    if (bind (fd, (struct sockaddr*)&unix_addr, len) < 0) {
         goto error;
-    if (chmod (name, 0666) < 0)
+    }
+    if (chmod (name, 0666) < 0) {
         goto error;
+    }
 
-    if (listen (fd, 5) < 0)
+    if (listen (fd, 5) < 0) {
         goto error;
-
+    }
     return (fd);
    
 error:

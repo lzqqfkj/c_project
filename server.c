@@ -34,32 +34,27 @@ int main ()
         if (nread == SOCKERR_IO) {
             printf ("read error on fd %d\n", clifd);
             break;
-        }
-        else if (nread == SOCKERR_CLOSED) {
+        } else if (nread == SOCKERR_CLOSED) {
             printf ("fd %d has been closed.\n", clifd);
             break;
-        }
-        else 
+        } else {
             printf ("Got that! data is %d\n", data);
-
+        }
         nread = sock_write (clifd, &data, sizeof (int));
 
         if (nread == SOCKERR_IO) {
             printf ("write error on fd %d\n", clifd);
             break;
-        }
-        else if (nread == SOCKERR_CLOSED) {
+        } else if (nread == SOCKERR_CLOSED) {
             printf ("fd %d has been closed.\n", clifd);
             break;
-        }
-        else
+        } else {
             printf ("Wrote %d to client. \n", data);
-        
+        }
 
-
-        if (data == 1000)
+        if (data == 1000) {
             break;
-
+        }
         //sleep (10);
     }
         
